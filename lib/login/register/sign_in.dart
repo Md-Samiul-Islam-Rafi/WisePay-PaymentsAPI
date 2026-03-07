@@ -65,10 +65,10 @@ class _SignInState extends State<SignIn> {
 
           //Sign part
           Padding(
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(16),
             child: Container(
               height: 380,
-              width: 398,
+              width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 color: (Color(0xFFFFFFFF)),
@@ -82,7 +82,7 @@ class _SignInState extends State<SignIn> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 18),
+                    SizedBox(height: 16),
                     Text(
                       'Get Started',
                       style: TextStyle(
@@ -91,14 +91,17 @@ class _SignInState extends State<SignIn> {
                         letterSpacing: -0.45,
                       ),
                     ),
-                    SizedBox(height: 18),
-                    Text(
-                      'Sign in to your account or create a new one',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF717182),
-                        letterSpacing: -0.31,
+                    SizedBox(height: 16),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        'Sign in to your account or create a new one',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF717182),
+                          letterSpacing: -0.31,
+                        ),
                       ),
                     ),
                   ],
