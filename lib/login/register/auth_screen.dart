@@ -209,7 +209,7 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
         ),
         onPressed: () {
-          // এখানে লগইন বা সাইনআপ এর লজিক বসবে
+          // এখানে লগইন বা সাইনআপ এর লজিক 
         },
         child: Text(
           _authMode == AuthMode.signIn ? "Sign In" : "Create Account",
