@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/login/register/sign_in.dart';
+import 'package:wisepay_paymentsapi/login/register/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: false,
       ),
-      home: SignIn(),
+      home: AuthScreen(),
     );
   }
 }
