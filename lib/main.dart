@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/login/register/auth_screen.dart';
+import 'package:wisepay_paymentsapi/login/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
