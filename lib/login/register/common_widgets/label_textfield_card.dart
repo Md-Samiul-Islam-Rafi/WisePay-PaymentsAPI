@@ -4,21 +4,21 @@ class LabelTextfieldCard extends StatelessWidget {
   final String label;
   final String hint;
   final bool isPassword;
-  final TextEditingController controller;
+  
 
   const LabelTextfieldCard({
     super.key,
     required this.label,
     required this.hint,
     this.isPassword = false,
-    required this.controller,
+    
   });
 
   Widget _buildTextField(String hint, {bool isPassword = false}) {
     return SizedBox(
       height: 40,
       child: TextFormField(
-        controller: controller,
+       
         obscureText: isPassword,
         style: const TextStyle(fontSize: 14),
         decoration: InputDecoration(

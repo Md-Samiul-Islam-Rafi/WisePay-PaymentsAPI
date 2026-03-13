@@ -46,13 +46,17 @@ class _PasswordResetState extends State<PasswordReset> {
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFFFFF),
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(width: 0.53, color: const Color(0x1A000000)),
+                  border: Border.all(
+                    width: 0.53,
+                    color: const Color(0x1A000000),
+                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     children: [
                       const SizedBox(height: 14),
+                      //Icon part
                       Container(
                         height: 48,
                         width: 48,
@@ -63,11 +67,16 @@ class _PasswordResetState extends State<PasswordReset> {
                         child: const Icon(Icons.email),
                       ),
                       const SizedBox(height: 22),
+                      //text part
                       const Text(
                         'Reset Your Password',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       const SizedBox(height: 6),
+
                       const Text(
                         'Enter your email address and we’ll send you a reset code',
                         style: TextStyle(
@@ -80,33 +89,22 @@ class _PasswordResetState extends State<PasswordReset> {
                       ),
                       const SizedBox(height: 24),
 
+                      //Label-TextfieldCard
                       LabelTextfieldCard(
                         label: "Email address",
                         hint: "Enter your email",
-                        controller: _emailController, // fixed
                       ),
 
                       const SizedBox(height: 16),
                       CommonSubmitButton(
-                        text: "Send Reset Code",
+                        text: "Email Address",
                         onPressed: () {
-                          final email = _emailController.text.trim();
-                          final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
-
-                          if (emailRegex.hasMatch(email)) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const VerifyCodePage(),
-                              ),
-                            );
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text("Please enter a valid email"),
-                              ),
-                            );
-                          }
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VerifyCodePage(),
+                            ),
+                          );
                         },
                       ),
                     ],

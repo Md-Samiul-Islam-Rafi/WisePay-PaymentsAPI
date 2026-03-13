@@ -21,7 +21,8 @@ class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   void dispose() {
@@ -95,7 +96,9 @@ class _AuthScreenState extends State<AuthScreen> {
                     color: const Color(0xFFFFFFFF),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                        width: 0.53, color: const Color(0x1A000000)),
+                      width: 0.53,
+                      color: const Color(0x1A000000),
+                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,14 +107,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         LabelTextfieldCard(
                           label: "Full Name",
                           hint: "Enter your full name",
-                          controller: _fullNameController,
                         ),
                         const SizedBox(height: 16),
                       ],
                       LabelTextfieldCard(
                         label: "Email",
                         hint: "enter your email",
-                        controller: _emailController, // fixed
+                        // fixed
                       ),
 
                       const SizedBox(height: 16),
@@ -122,7 +124,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ? "Enter your password"
                             : "Create a password",
                         isPassword: true,
-                        controller: _passwordController, // fixed
+                        // fixed
                       ),
 
                       if (_authMode == AuthMode.signUp) ...[
@@ -131,7 +133,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           label: "Create a password",
                           hint: "Confirm your password",
                           isPassword: true,
-                          controller: _confirmPasswordController, // fixed
+                          // fixed
                         ),
                       ],
                       const SizedBox(height: 24),
@@ -151,17 +153,25 @@ class _AuthScreenState extends State<AuthScreen> {
                             final email = _emailController.text.trim();
                             final password = _passwordController.text;
                             final confirm = _confirmPasswordController.text;
-                            if (email.isEmpty || password.isEmpty || confirm.isEmpty) {
+                            if (email.isEmpty ||
+                                password.isEmpty ||
+                                confirm.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Please fill all fields")),
+                                const SnackBar(
+                                  content: Text("Please fill all fields"),
+                                ),
                               );
                             } else if (password != confirm) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Passwords do not match")),
+                                const SnackBar(
+                                  content: Text("Passwords do not match"),
+                                ),
                               );
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Account created")),
+                                const SnackBar(
+                                  content: Text("Account created"),
+                                ),
                               );
                             }
                           }
@@ -178,4 +188,3 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 }
-
