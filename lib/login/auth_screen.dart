@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/kyc_information/ui/verify_identity.dart';
 import 'package:wisepay_paymentsapi/login/register/common_widgets/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/password_reset.dart';
 
@@ -172,7 +173,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
                     const SizedBox(height: 20),
 
-                    /// FORM
+                    /// create account from part
                     if (_authMode == AuthMode.signUp) ...[
                       const LabelTextfieldCard(
                         label: "Full Name",
@@ -208,17 +209,27 @@ class _AuthScreenState extends State<AuthScreen> {
 
                     const SizedBox(height: 24),
 
+                    //button part
                     CommonSubmitButton(
                       text: _authMode == AuthMode.signIn
                           ? "Sign In"
                           : "Create Account",
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const PasswordReset(),
-                          ),
-                        );
+                        if (_authMode == AuthMode.signIn) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PasswordReset(),
+                            ),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VerifyIdentity(),
+                            ),
+                          );
+                        }
                       },
                     ),
                   ],
