@@ -3,11 +3,8 @@ import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/login/register/common_widgets/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/password_reset.dart';
 
-/// Enumeration used to track whether the user is signing in or signing up.
 enum AuthMode { signIn, signUp }
 
-/// The initial authentication screen shown when the app starts.  It allows
-/// toggling between sign-in and sign-up mode and collects the required fields.
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
 
@@ -18,21 +15,6 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   AuthMode _authMode = AuthMode.signIn;
 
-  final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
-
-  @override
-  void dispose() {
-    _fullNameController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _confirmPasswordController.dispose();
-    super.dispose();
-  }
-
   void _switchMode(AuthMode mode) {
     setState(() {
       _authMode = mode;
@@ -42,146 +24,207 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF4F4F4),
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              children: [
-                const Text(
-                  'Welcome to WisePay',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 24),
-
-                // Mode selector
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () => _switchMode(AuthMode.signIn),
-                      child: Text(
-                        'Sign In',
-                        style: TextStyle(
-                          fontWeight: _authMode == AuthMode.signIn
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                          color: _authMode == AuthMode.signIn
-                              ? Colors.deepOrange
-                              : Colors.black54,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
+              SizedBox(height: 108),
+              const Column(
+                children: [
+                  /// LOGO (square rounded)
+                  SizedBox(
+                    height: 56,
+                    width: 56,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Color(0xFF0B0B2B),
+                        borderRadius: BorderRadius.all(Radius.circular(14)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "W",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                    TextButton(
-                      onPressed: () => _switchMode(AuthMode.signUp),
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          fontWeight: _authMode == AuthMode.signUp
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                          color: _authMode == AuthMode.signUp
-                              ? Colors.deepOrange
-                              : Colors.black54,
-                        ),
+                  ),
+
+                  SizedBox(height: 16),
+
+                  Text(
+                    "Welcome to WisePay",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+
+                  SizedBox(height: 8),
+
+                  Text(
+                    "Send money globally with the real exchange rate",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14, color: Colors.black54),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 32),
+
+              /// MAIN CARD
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(
+                    width: 0.5,
+                    color: const Color(0x33000000),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Get started",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
                       ),
+                    ),
+
+                    const SizedBox(height: 6),
+
+                    const Text(
+                      "Sign in to your account or create a new one",
+                      style: TextStyle(fontSize: 13, color: Colors.black54),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    /// SIGN IN / SIGN UP TOGGLE
+                    Container(
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE6E6E6),
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      child: Row(
+                        children: [
+                          /// SIGN IN
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () => _switchMode(AuthMode.signIn),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: _authMode == AuthMode.signIn
+                                      ? Colors.white
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          /// SIGN UP
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () => _switchMode(AuthMode.signUp),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: _authMode == AuthMode.signUp
+                                      ? Colors.white
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Sign Up",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    /// FORM
+                    if (_authMode == AuthMode.signUp) ...[
+                      const LabelTextfieldCard(
+                        label: "Full Name",
+                        hint: "Enter your full name",
+                      ),
+                      const SizedBox(height: 16),
+                    ],
+
+                    const LabelTextfieldCard(
+                      label: "Email",
+                      hint: "Enter your email",
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    LabelTextfieldCard(
+                      label: "Password",
+                      hint: _authMode == AuthMode.signIn
+                          ? "Enter your password"
+                          : "Create a password",
+                      isPassword: true,
+                    ),
+
+                    if (_authMode == AuthMode.signUp) ...[
+                      const SizedBox(height: 16),
+
+                      const LabelTextfieldCard(
+                        label: "Confirm Password",
+                        hint: "Confirm your password",
+                        isPassword: true,
+                      ),
+                    ],
+
+                    const SizedBox(height: 24),
+
+                    CommonSubmitButton(
+                      text: _authMode == AuthMode.signIn
+                          ? "Sign In"
+                          : "Create Account",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PasswordReset(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
-
-                Container(
-                  padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFFFFF),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(
-                      width: 0.53,
-                      color: const Color(0x1A000000),
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (_authMode == AuthMode.signUp) ...[
-                        LabelTextfieldCard(
-                          label: "Full Name",
-                          hint: "Enter your full name",
-                        ),
-                        const SizedBox(height: 16),
-                      ],
-                      LabelTextfieldCard(
-                        label: "Email",
-                        hint: "enter your email",
-                        // fixed
-                      ),
-
-                      const SizedBox(height: 16),
-
-                      LabelTextfieldCard(
-                        label: "Password",
-                        hint: _authMode == AuthMode.signIn
-                            ? "Enter your password"
-                            : "Create a password",
-                        isPassword: true,
-                        // fixed
-                      ),
-
-                      if (_authMode == AuthMode.signUp) ...[
-                        const SizedBox(height: 16),
-                        LabelTextfieldCard(
-                          label: "Create a password",
-                          hint: "Confirm your password",
-                          isPassword: true,
-                          // fixed
-                        ),
-                      ],
-                      const SizedBox(height: 24),
-                      CommonSubmitButton(
-                        text: _authMode == AuthMode.signIn
-                            ? "Sign In"
-                            : "Create Account",
-                        onPressed: () {
-                          if (_authMode == AuthMode.signIn) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PasswordReset(),
-                              ),
-                            );
-                          } else {
-                            final email = _emailController.text.trim();
-                            final password = _passwordController.text;
-                            final confirm = _confirmPasswordController.text;
-                            if (email.isEmpty ||
-                                password.isEmpty ||
-                                confirm.isEmpty) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("Please fill all fields"),
-                                ),
-                              );
-                            } else if (password != confirm) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("Passwords do not match"),
-                                ),
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("Account created"),
-                                ),
-                              );
-                            }
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

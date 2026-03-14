@@ -18,7 +18,6 @@ class CreateNewPassword extends StatelessWidget {
               const SizedBox(height: 160),
 
               //back button part
-
               Row(
                 children: const [
                   Icon(Icons.arrow_back),
@@ -81,7 +80,6 @@ class CreateNewPassword extends StatelessWidget {
                       ),
 
                       //Input text field
-
                       SizedBox(height: 24),
                       LabelTextfieldCard(
                         label: "New Password",
@@ -95,7 +93,6 @@ class CreateNewPassword extends StatelessWidget {
                       SizedBox(height: 16),
 
                       //Password requirement part
-
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(12),
