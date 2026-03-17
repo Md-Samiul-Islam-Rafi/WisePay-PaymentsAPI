@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/kyc_information/ui/verify_identity.dart';
-import 'package:wisepay_paymentsapi/login/register/common_widgets/label_textfield_card.dart';
+import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/password_reset.dart';
 
 enum AuthMode { signIn, signUp }
@@ -233,6 +233,16 @@ class _AuthScreenState extends State<AuthScreen> {
                       },
                     ),
                   ],
+                ),
+              ),
+              SizedBox(height: 12),
+
+              Text(
+                'Froget Your Password',
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  letterSpacing: -0.42,
+                  color: Colors.brown,
                 ),
               ),
             ],

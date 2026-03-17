@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 
 class LabelTextfieldCard extends StatelessWidget {
   final String label;
-  final String hint;
+  final String? hint; // এখন optional
   final bool isPassword;
-  
+  final TextInputType? keyboardType;
 
   const LabelTextfieldCard({
     super.key,
     required this.label,
-    required this.hint,
+    this.hint, // required বাদ দেওয়া হলো
     this.isPassword = false,
-    
+    this.keyboardType,
   });
 
-  Widget _buildTextField(String hint, {bool isPassword = false}) {
+  Widget _buildTextField({String? hint, bool isPassword = false}) {
     return SizedBox(
       height: 40,
       child: TextFormField(
-       
         obscureText: isPassword,
         style: const TextStyle(fontSize: 14),
+        keyboardType: keyboardType,
         decoration: InputDecoration(
-          hintText: hint,
+          hintText: hint, // hint থাকলে দেখাবে, না থাকলে ফাঁকা থাকবে
           hintStyle: const TextStyle(fontSize: 13, color: Color(0xFFB5B5BE)),
           filled: true,
           fillColor: const Color(0xFFF5F5F7),
@@ -60,7 +60,7 @@ class LabelTextfieldCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildLabel(label),
-        _buildTextField(hint, isPassword: isPassword),
+        _buildTextField(hint: hint, isPassword: isPassword),
       ],
     );
   }

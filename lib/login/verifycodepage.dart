@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/login/create_new_password.dart';
-import 'package:wisepay_paymentsapi/login/register/common_widgets/label_textfield_card.dart';
+import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/register/common_widgets/step_dot.dart';
 
 class VerifyCodePage extends StatelessWidget {

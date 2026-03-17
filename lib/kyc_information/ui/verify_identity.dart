@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/kyc_information/ui/personal_info.dart';
 
 class VerifyIdentity extends StatelessWidget {
   const VerifyIdentity({super.key});
@@ -164,11 +165,19 @@ class VerifyIdentity extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     SizedBox(height: 24),
+
                     CommonSubmitButton(
                       text: "Start Verification",
-
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PersonalInfo(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
