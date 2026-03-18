@@ -1,10 +1,44 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/common/ui/drop_down_card.dart';
 import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
-import 'package:wisepay_paymentsapi/kyc_information/ui/review_info.dart';
-import 'package:wisepay_paymentsapi/kyc_information/ui/verify_identity.dart';
+import 'package:wisepay_paymentsapi/kyc_information/ui/take_selfie.dart';
 import 'package:wisepay_paymentsapi/kyc_information/widget/step_header_card.dart';
+
+class FileUploadCard extends StatelessWidget {
+  final String label;
+  final FileType fileType;
+  final List<String>? extensions;
+
+  const FileUploadCard({
+    Key? key,
+    required this.label,
+    required this.fileType,
+    this.extensions,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        FilePickerResult? result = await FilePicker.platform.pickFiles(
+          type: fileType,
+          allowedExtensions: extensions,
+        );
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          border: Border.all(color: const Color(0x1A000000), width: 0.53),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Text(label),
+      ),
+    );
+  }
+}
 
 class IdentityDoc extends StatelessWidget {
   const IdentityDoc({super.key});
@@ -63,11 +97,12 @@ class IdentityDoc extends StatelessWidget {
                         const SizedBox(height: 16),
 
                         LabelDropdownCard(
-                          label: "Document Type",
+                          hintText: "Select document type",
                           items: ["D102", "E243", "R232", "U343"],
                           onChanged: (val) {
                             print("Selected document type: $val");
                           },
+                          label: 'Document Type',
                         ),
 
                         const SizedBox(height: 16),
@@ -89,8 +124,26 @@ class IdentityDoc extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text("Fount of Documnet"),
 
+                        SizedBox(height: 16),
+
+                        Text(
+                          "Fount of Documnet",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+
+                        SizedBox(height: 8),
+                        // PDF upload card
+                        FileUploadCard(
+                          label: "Upload your document",
+                          fileType: FileType.custom,
+                          extensions: ['pdf'],
+                        ),
+
+                        // PDF upload card
                         const SizedBox(height: 16),
                         CommonSubmitButton(
                           text: "Continue",
@@ -98,7 +151,7 @@ class IdentityDoc extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ReviewInfo(),
+                                builder: (context) => const TakeSelfie(),
                               ),
                             );
                           },

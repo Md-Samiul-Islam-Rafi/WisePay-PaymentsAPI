@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/home/ui/home_screen.dart';
 import 'package:wisepay_paymentsapi/kyc_information/ui/verify_identity.dart';
 import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/password_reset.dart';
@@ -31,46 +32,40 @@ class _AuthScreenState extends State<AuthScreen> {
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              SizedBox(height: 108),
-              const Column(
-                children: [
-                  /// LOGO (square rounded)
-                  SizedBox(
-                    height: 56,
-                    width: 56,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: Color(0xFF0B0B2B),
-                        borderRadius: BorderRadius.all(Radius.circular(14)),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "W",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+              SizedBox(
+                height: 56,
+                width: 56,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF0B0B2B),
+                    borderRadius: BorderRadius.all(Radius.circular(14)),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "W",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
+                ),
+              ),
 
-                  SizedBox(height: 16),
+              SizedBox(height: 16),
 
-                  Text(
-                    "Welcome to WisePay",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
+              Text(
+                "Welcome to WisePay",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
 
-                  SizedBox(height: 8),
+              SizedBox(height: 8),
 
-                  Text(
-                    "Send money globally with the real exchange rate",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14, color: Colors.black54),
-                  ),
-                ],
+              Text(
+                "Send money globally with the real exchange rate",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, color: Colors.black54),
               ),
 
               const SizedBox(height: 32),
@@ -219,7 +214,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const PasswordReset(),
+                              builder: (context) => const HomeScreen(),
                             ),
                           );
                         } else {
@@ -237,12 +232,22 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               SizedBox(height: 12),
 
-              Text(
-                'Froget Your Password',
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  letterSpacing: -0.42,
-                  color: Colors.brown,
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PasswordReset(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Forget Your Password',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: -0.42,
+                    color: Colors.brown,
+                  ),
                 ),
               ),
             ],

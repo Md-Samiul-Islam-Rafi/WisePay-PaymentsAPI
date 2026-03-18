@@ -5,6 +5,7 @@ class LabelDropdownCard extends StatelessWidget {
   final List<String> items;
   final String? value;
   final ValueChanged<String?> onChanged;
+  final String hintText;
 
   const LabelDropdownCard({
     super.key,
@@ -12,6 +13,7 @@ class LabelDropdownCard extends StatelessWidget {
     required this.items,
     this.value,
     required this.onChanged,
+    this.hintText = "Select option",
   });
 
   @override
@@ -47,15 +49,12 @@ class LabelDropdownCard extends StatelessWidget {
               ),
             ),
           ),
-          hint: const Text(
-            "Select country",
-            style: TextStyle(fontSize: 13, color: Color(0xFFB5B5BE)),
+          hint: Text(
+            hintText,
+            style: const TextStyle(fontSize: 13, color: Color(0xFFB5B5BE)),
           ),
           items: items
-              .map(
-                (country) =>
-                    DropdownMenuItem(value: country, child: Text(country)),
-              )
+              .map((item) => DropdownMenuItem(value: item, child: Text(item)))
               .toList(),
           onChanged: onChanged,
         ),
