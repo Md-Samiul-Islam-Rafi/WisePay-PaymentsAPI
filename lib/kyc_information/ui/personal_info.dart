@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/common/ui/drop_down_card.dart';
 import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
-import 'package:wisepay_paymentsapi/kyc_information/ui/review_info.dart';
+import 'package:wisepay_paymentsapi/kyc_information/ui/address_info.dart';
 import 'package:wisepay_paymentsapi/kyc_information/widget/step_header_card.dart';
 
 class PersonalInfo extends StatelessWidget {
@@ -97,20 +97,16 @@ class PersonalInfo extends StatelessWidget {
                         ),
                         const SizedBox(height: 24),
 
-                        // ✅ Responsive button alignment
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: CommonSubmitButton(
-                            text: "Continue",
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const ReviewInfo(),
-                                ),
-                              );
-                            },
-                          ),
+                        CommonSubmitButton(
+                          text: "Continue",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AddressInfo(),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
