@@ -237,7 +237,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PasswordReset(),
+                      builder: (context) => HomeScreen(),
                     ),
                   );
                 },
