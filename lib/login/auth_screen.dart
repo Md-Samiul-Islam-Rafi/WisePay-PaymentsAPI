@@ -236,9 +236,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
+                    MaterialPageRoute(builder: (context) => PasswordReset()),
                   );
                 },
                 child: const Text(
