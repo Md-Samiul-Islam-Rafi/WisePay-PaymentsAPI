@@ -372,7 +372,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.credit_card,
-                        size: 28, 
+                        size: 28,
                         color: Colors.purpleAccent,
                       ),
 
@@ -400,6 +400,29 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+
+      //Bottom Navigation Bar
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        selectedLabelStyle: TextStyle(color: Colors.black),
+        unselectedLabelStyle: TextStyle(color: Colors.grey),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet_outlined),
+            label: "Balances",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.send), label: "Payments"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.credit_card),
+            label: "Cards",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
       ),
     );
   }
