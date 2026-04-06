@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/common/widget/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/kyc_information/ui/review_info.dart';
 import 'package:wisepay_paymentsapi/kyc_information/widget/selfieupload_card.dart';
 import 'package:wisepay_paymentsapi/kyc_information/widget/step_header_card.dart';

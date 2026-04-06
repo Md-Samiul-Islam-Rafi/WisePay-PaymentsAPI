@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/common/widget/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/login/auth_screen.dart';
 
 class PasswordResetSuccessfull extends StatelessWidget {

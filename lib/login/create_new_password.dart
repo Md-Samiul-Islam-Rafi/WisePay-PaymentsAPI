@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/common/widget/common_submit_button.dart';
 import 'package:wisepay_paymentsapi/login/password_reset_successfull.dart';
-import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
+import 'package:wisepay_paymentsapi/common/widget/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/register/common_widgets/step_dot.dart';
 
 class CreateNewPassword extends StatelessWidget {

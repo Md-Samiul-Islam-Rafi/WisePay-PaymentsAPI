@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/home/ui/common/action-button.dart';
-import 'package:wisepay_paymentsapi/home/ui/common/balance-card.dart';
+import 'package:wisepay_paymentsapi/home/ui/widget/action-button.dart';
+import 'package:wisepay_paymentsapi/home/ui/widget/balance-card.dart';
+import 'package:wisepay_paymentsapi/home/ui/widget/market_rates.dart';
+import 'package:wisepay_paymentsapi/home/ui/widget/resent_activity.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -397,6 +399,121 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              SizedBox(height: 28),
+
+              //Market Rate part
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Market Rates',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    'View All',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 12),
+
+              //marketRate widget
+              MarketRates(
+                currencyPair: "USD/EUR",
+                changeValue: '-0.0023',
+                rateValue: '0.8542',
+                icon: Icons.trending_down,
+                iconColor: Colors.red,
+                backgroundColor: Colors.red[50]!,
+              ),
+              SizedBox(height: 8),
+              MarketRates(
+                currencyPair: "GBP/USD",
+                changeValue: '+0.0087',
+                rateValue: '1.2456',
+                icon: Icons.trending_up,
+                iconColor: Colors.green,
+                backgroundColor: Colors.green[50]!,
+              ),
+              SizedBox(height: 8),
+              MarketRates(
+                currencyPair: "EUR/USD",
+                changeValue: '+0.0012',
+                rateValue: '0.8734',
+                icon: Icons.trending_up,
+                iconColor: Colors.green,
+                backgroundColor: Colors.green[50]!,
+              ),
+
+              SizedBox(height: 24),
+
+              // Recent Activity part
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Recent Activity',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    'View All',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 12),
+
+              //resent activity
+              ResentActivity(
+                title: 'Transfer to John Smith',
+                status: 'Completed',
+                date: '1/2/2025',
+                amount: '\$150.00',
+                currency: 'USD',
+                leadingIcon: Icons.send,
+                leadingColor: Colors.red,
+                statusIcon: Icons.check_circle_outline,
+                statusColor: Colors.green,
+              ),
+              SizedBox(height: 8),
+              ResentActivity(
+                title: 'Payment from Sarah Johnson',
+                status: 'Pending',
+                date: '1/2/2025',
+                amount: '\$890.22',
+                currency: 'USD',
+                leadingIcon: Icons.file_download_outlined,
+                leadingColor: Colors.red,
+                statusIcon: Icons.access_time,
+                statusColor: Colors.orange,
+              ),
+              SizedBox(height: 8),
+              ResentActivity(
+                title: 'Converted GBP to USD',
+                status: 'Completed',
+                date: '1/6/2025',
+                amount: '\$200.00',
+                currency: 'USD',
+                leadingIcon: Icons.refresh,
+                leadingColor: Colors.blue,
+                statusIcon: Icons.check_circle_outline,
+                statusColor: Colors.green,
+              ),
+              SizedBox(height: 8),
+              ResentActivity(
+                title: 'Transfer to John Smith',
+                status: 'Completed',
+                date: '1/8/2025',
+                amount: '\$190.00',
+                currency: 'USD',
+                leadingIcon: Icons.file_download_outlined,
+                leadingColor: Colors.red,
+                statusIcon: Icons.check_circle_outline,
+                statusColor: Colors.green,
+              ),
             ],
           ),
         ),
@@ -405,7 +522,7 @@ class HomeScreen extends StatelessWidget {
       //Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        
+
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         selectedLabelStyle: TextStyle(color: Colors.black),

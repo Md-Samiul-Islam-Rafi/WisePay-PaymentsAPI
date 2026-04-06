@@ -7,12 +7,12 @@ class BalanceCard extends StatelessWidget {
   final String flagAsset;
 
   const BalanceCard({
-    Key? key,
+    super.key,
     required this.currencyCode,
     required this.statusText,
     required this.amount,
     required this.flagAsset,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
-import 'package:wisepay_paymentsapi/common/ui/drop_down_card.dart';
-import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
+import 'package:wisepay_paymentsapi/common/widget/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/common/widget/drop_down_card.dart';
+import 'package:wisepay_paymentsapi/common/widget/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/kyc_information/ui/identity_doc.dart';
 import 'package:wisepay_paymentsapi/kyc_information/widget/step_header_card.dart';
 

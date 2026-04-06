@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:wisepay_paymentsapi/common/ui/common_submit_button.dart';
-import 'package:wisepay_paymentsapi/home/ui/home_screen.dart';
+import 'package:wisepay_paymentsapi/common/widget/common_submit_button.dart';
+import 'package:wisepay_paymentsapi/home/ui/ui/home_screen.dart';
 import 'package:wisepay_paymentsapi/kyc_information/ui/verify_identity.dart';
-import 'package:wisepay_paymentsapi/common/ui/label_textfield_card.dart';
+import 'package:wisepay_paymentsapi/common/widget/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/password_reset.dart';
 
 enum AuthMode { signIn, signUp }
 
 class AuthScreen extends StatefulWidget {
-  const AuthScreen({Key? key}) : super(key: key);
+  const AuthScreen({super.key});
 
   @override
   State<AuthScreen> createState() => _AuthScreenState();
