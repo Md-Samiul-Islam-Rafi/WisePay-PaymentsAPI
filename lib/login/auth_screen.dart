@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisepay_paymentsapi/common/widget/common_submit_button.dart';
-import 'package:wisepay_paymentsapi/home/ui/ui/home_screen.dart';
 import 'package:wisepay_paymentsapi/kyc_information/ui/verify_identity.dart';
+import 'package:wisepay_paymentsapi/navigation/ui/app_navigaton.dart';
 import 'package:wisepay_paymentsapi/common/widget/label_textfield_card.dart';
 import 'package:wisepay_paymentsapi/login/password_reset.dart';
 
@@ -211,10 +211,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           : "Create Account",
                       onPressed: () {
                         if (_authMode == AuthMode.signIn) {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                              builder: (context) => const ButtomNavigation(),
                             ),
                           );
                         } else {
